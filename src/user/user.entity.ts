@@ -1,7 +1,14 @@
 /* eslint-disable prettier/prettier */
 export class User{
-
-    id:string;
-    title:string;
-    subtitle:string;
+    
+    No:string;
+    DoctorID:string;
+    Fname:string;
+    Lname:string;
+    Email:string;
+    Telephone:string;
+    Position:string;
+    Username:string;
+    Password:string;
+    
 }

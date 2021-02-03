@@ -15,9 +15,30 @@ export class UserController {
     }
 
     @Post("/:post")
-    postUser(@Body("title") title:string, @Body("subtitle") subtitle:string){
+    postUser(
+        @Body("DoctorID") DoctorID:string,
+        @Body("Fname") Fname:string, 
+        @Body("Lname") Lname:string,
+        @Body("Email") Email:string,
+        @Body("Telephone") Telephone:string,
+        @Body("Position") Position:string,
+        @Body("Username") Username:string,
+        @Body("Password") Password:string,
+        
+        ){
 
-        this.userService.addUser(title,subtitle);
+        this.userService.addUser(
+            
+                        DoctorID,
+                        Fname,
+                        Lname,
+                        Email,
+                        Telephone,
+                        Position,
+                        Username,
+                        Password, 
+
+                        );
 
     }
 

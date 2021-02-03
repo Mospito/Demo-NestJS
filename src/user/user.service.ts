@@ -9,13 +9,37 @@ export class UserService {
     userArray: User[] = []
     
 
-    addUser(title:string, subtitle:string){
+    addUser(
 
-        console.log(`title: ${title}, subtitle: ${subtitle}`);
+        DoctorID:string,
+        Fname:string, 
+        Lname:string,
+        Email:string,
+        Telephone:string,
+        Position:string,
+        Username:string,
+        Password:string,
+        
+        
+        ){
+
+        console.log(`{---------------
+                      DoctorID: ${DoctorID},Fname: ${Fname}, Lname: ${Lname}, Email: ${Email}, Telephone: ${Telephone}, Position: ${Position},
+                      Username: ${Username}, Password: ${Password}
+                      ---------------} `);
+
+
         const user = new User();
-        user.id = uuid();
-        user.title = title;
-        user.subtitle = subtitle;
+        user.No = uuid();
+        user.DoctorID = DoctorID;
+        user.Fname = Fname;
+        user.Lname = Lname;
+        user.Email = Email;
+        user.Telephone = Telephone;
+        user.Position = Position;
+        user.Username = Username;
+        user.Password = Password;
+        
 
         this.userArray.push(user);
     }
@@ -26,12 +50,12 @@ export class UserService {
 
     removeUserById(id:string){
 
-        const found = this.userArray.find(item=> item.id === id);
+        const found = this.userArray.find(item=> item.No === id);
         if(!found){
             throw new NotFoundException(`User with ${id} not found `);
         }
 
-        this.userArray = this.userArray.filter(item=>{return item.id !== id});
+        this.userArray = this.userArray.filter(item=>{return item.No !== id});
 
         return this.userArray;
 
